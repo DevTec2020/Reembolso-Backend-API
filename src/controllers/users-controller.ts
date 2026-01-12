@@ -54,6 +54,28 @@ class UsersController {
 
         return response.json(users);
     }
+
+    async delete(request: Request, response: Response) {
+        const { id } = request.params
+
+        const user = await prisma.user.findUnique({
+            where: { id }
+        })
+
+        if (!user) {
+            return response.status(404).json({message: "Usuário não encontrado."})
+        }
+
+        try{
+            await prisma.user.delete({
+                where: { id }
+            })
+            
+            return response.status(200).json({message: "Usuário removido com sucesso!"})
+        } catch (error) {
+            return response.status(500).json({message: `Erro ao tentar remover usuário: ${error}`})
+        }
+    }
 }
 
 export {UsersController }
