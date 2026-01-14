@@ -1,3 +1,4 @@
+// Controle de Sessão
 import { Request, Response } from "express";
 import { authConfig } from "@/configs/auth";
 import { prisma } from "@/database/prisma"
