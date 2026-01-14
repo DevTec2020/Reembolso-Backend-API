@@ -1,6 +1,6 @@
 // Regras para tratar o arquivo antes de armazenar
-import multer from "multer";
-import path from "node:path";
+import multer from "multer"
+import path from "node:path"
 import crypto from "node:crypto"
 
 const TMP_FOLDER = path.resolve(__dirname,"..", "..", "tmp")
@@ -11,7 +11,7 @@ const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"]
 
 // Recebendo os arquivos, eu mudei o nome para garantir que não vão ter arquivos com o mesmo nome e sobreescreva
 const MULTER = {
-    Storage: multer.diskStorage({
+    storage: multer.diskStorage({
         destination: TMP_FOLDER,
         filename(request, file, callback) {
             const fileHash = crypto.randomBytes(5).toString("hex")
