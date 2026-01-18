@@ -30,13 +30,13 @@ class RefundsController {
       return response.status(400).json({ message: "Categoria inválida." });
     }
 
-    // Validação de Valor
+    // Validação de Valor positivo
     if (Number(amount) <= 0) {
       return response.status(400).json({ message: "O valor deve ser positivo." });
     }
 
     try {
-      // Subindo dados para o banco
+      // Subindo dados recebidos para o banco
       const refund = await prisma.refunds.create({
         data: {
           name,
@@ -50,7 +50,7 @@ class RefundsController {
       return response.status(201).json(refund);
 
     } catch (error) {
-      return response.status(500).json({ message: `Erro ao criar reembolso: ${error}` });
+      return response.status(500).json({ message: `Erro ao subir os dados para o banco: ${error}` });
     }
   }
 
