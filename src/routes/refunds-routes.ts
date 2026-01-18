@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { RefundsController } from "../controllers/refunds-controller";
 
-import { verifyUserAuthorization } from "@/middlewares/verifyUserAuthorization";
+import { verifyUserAuthorization } from "@/middlewares/verify-user-Authorization";
 
 const refundsRoutes = Router();
 const refundsController = new RefundsController();

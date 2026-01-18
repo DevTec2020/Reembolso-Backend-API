@@ -7,7 +7,7 @@ import { UploadsController } from "@/controllers/uploads-controller";
 const uploadsRoutes = Router()
 const uploadsController = new UploadsController()
 
-import { verifyUserAuthorization } from "@/middlewares/verifyUserAuthorization";
+import { verifyUserAuthorization } from "@/middlewares/verify-user-Authorization";
 
 const upload = multer(uploadConfig.MULTER)
 
